@@ -3,7 +3,7 @@ import java.sql.DriverManager;
 public class ConexaoBD {
     //colocar os valores do seu aiven
     private static String usuario = "avnadmin";
-    private static String senha = "sua senha aqui";
+    private static String senha = "AVNS_Eb9JfDQEMbD8mgYzkqC";
     private static String host = "mysql-3d189786-saojudas-f46b.aivencloud.com";
     private static String porta = "21845";
     private static String bd = "defaultdb";
