@@ -1,3 +1,7 @@
+
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -13,7 +17,10 @@ public class CursosTela extends javax.swing.JFrame {
      * Creates new form CursosTela
      */
     public CursosTela() {
+        super("Gerenciamento de cursos");
         initComponents();
+        buscarCursos();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -38,8 +45,6 @@ public class CursosTela extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Gerenciamento de Cursos"));
-
-        cursosComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         idCursoTextField.setBorder(javax.swing.BorderFactory.createTitledBorder("id"));
 
@@ -164,7 +169,7 @@ public class CursosTela extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton atualizarCursoButton;
     private javax.swing.JButton cancelarCursoButton;
-    private javax.swing.JComboBox<String> cursosComboBox;
+    private javax.swing.JComboBox<Curso> cursosComboBox;
     private javax.swing.JTextField idCursoTextField;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField nomeCursoTextField;
@@ -172,4 +177,21 @@ public class CursosTela extends javax.swing.JFrame {
     private javax.swing.JButton removerCursoButton;
     private javax.swing.JTextField tipoCursoTextField;
     // End of variables declaration//GEN-END:variables
+
+private void buscarCursos() {
+    try {
+        CursoDAO cd = new CursoDAO();
+        Curso[] cursos = cd.obterCursos();
+        cursosComboBox.setModel(
+                new DefaultComboBoxModel<>(cursos));
+    }
+    catch (Exception e) {
+        JOptionPane.showMessageDialog(
+        null, 
+        "não encontrei lista de cursos");
+        e.printStackTrace();
+    }
+}
+
+
 }

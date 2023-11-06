@@ -36,6 +36,11 @@ public class DashboardTela extends javax.swing.JFrame {
         dashboardPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Cadastro de cursos e alunos"));
 
         gerenciarCursosButton.setText("Gerenciar Cursos");
+        gerenciarCursosButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                gerenciarCursosButtonActionPerformed(evt);
+            }
+        });
 
         gerenciarAlunosButton.setText("Gerenciar Alunos");
 
@@ -79,6 +84,12 @@ public class DashboardTela extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void gerenciarCursosButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gerenciarCursosButtonActionPerformed
+        CursosTela ct = new CursosTela();
+        ct.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_gerenciarCursosButtonActionPerformed
 
     /**
      * @param args the command line arguments
