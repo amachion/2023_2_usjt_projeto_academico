@@ -46,6 +46,12 @@ public class CursosTela extends javax.swing.JFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Gerenciamento de Cursos"));
 
+        cursosComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cursosComboBoxActionPerformed(evt);
+            }
+        });
+
         idCursoTextField.setBorder(javax.swing.BorderFactory.createTitledBorder("id"));
 
         nomeCursoTextField.setBorder(javax.swing.BorderFactory.createTitledBorder("nome"));
@@ -53,8 +59,18 @@ public class CursosTela extends javax.swing.JFrame {
         tipoCursoTextField.setBorder(javax.swing.BorderFactory.createTitledBorder("tipo"));
 
         novoCursoButton.setText("Novo");
+        novoCursoButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                novoCursoButtonActionPerformed(evt);
+            }
+        });
 
         atualizarCursoButton.setText("Atualizar");
+        atualizarCursoButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                atualizarCursoButtonActionPerformed(evt);
+            }
+        });
 
         removerCursoButton.setText("Remover");
 
@@ -65,29 +81,24 @@ public class CursosTela extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(cursosComboBox, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(idCursoTextField, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(8, 8, 8)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(nomeCursoTextField)
-                                    .addComponent(tipoCursoTextField)))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(removerCursoButton, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE)
-                            .addComponent(novoCursoButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap()
+                        .addComponent(tipoCursoTextField))
+                    .addComponent(nomeCursoTextField)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(removerCursoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(novoCursoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(cancelarCursoButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(atualizarCursoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(17, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(atualizarCursoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cancelarCursoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(cursosComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(idCursoTextField))
+                .addGap(44, 44, 44))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -95,20 +106,20 @@ public class CursosTela extends javax.swing.JFrame {
                 .addGap(21, 21, 21)
                 .addComponent(cursosComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(idCursoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(nomeCursoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(idCursoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(tipoCursoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(nomeCursoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(tipoCursoTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(novoCursoButton)
-                    .addComponent(atualizarCursoButton))
+                    .addComponent(atualizarCursoButton)
+                    .addComponent(novoCursoButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(removerCursoButton)
                     .addComponent(cancelarCursoButton))
-                .addContainerGap(8, Short.MAX_VALUE))
+                .addGap(14, 14, 14))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -118,18 +129,80 @@ public class CursosTela extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(57, 57, 57)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addContainerGap(55, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void novoCursoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_novoCursoButtonActionPerformed
+        //capturar as informações digitadas
+        String nomeCurso = nomeCursoTextField.getText();
+        String tipoCurso = tipoCursoTextField.getText();
+        if (nomeCurso == null || nomeCurso.length() == 0 || 
+                tipoCurso == null || tipoCurso.length() == 0) {
+            JOptionPane.showMessageDialog(null, 
+                    "Preencha os dois campos");
+        }
+        else {
+            try {
+                int opcao = JOptionPane.showConfirmDialog(null, 
+                        "Confirma inserção?");
+                if (opcao == JOptionPane.YES_OPTION) {
+                    Curso curso = new Curso(nomeCurso, tipoCurso);
+                    CursoDAO cd = new CursoDAO();
+                    cd.inserirCurso(curso);
+                    nomeCursoTextField.setText("");
+                    tipoCursoTextField.setText("");
+                    JOptionPane.showMessageDialog(null, 
+                            "Curso cadastrado com sucesso!");
+                    buscarCursos();
+                }
+            }
+            catch (Exception e) {
+                JOptionPane.showMessageDialog(null, 
+                        "Problemas técnicos...");
+                e.printStackTrace();
+            }
+        }
+    }//GEN-LAST:event_novoCursoButtonActionPerformed
+
+    private void cursosComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cursosComboBoxActionPerformed
+        Curso curso = (Curso)cursosComboBox.getSelectedItem();
+        idCursoTextField.setText(Integer.toString(curso.getId()));
+        nomeCursoTextField.setText(curso.getNome());
+        tipoCursoTextField.setText(curso.getTipo());
+    }//GEN-LAST:event_cursosComboBoxActionPerformed
+
+    private void atualizarCursoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atualizarCursoButtonActionPerformed
+        int opcao = JOptionPane.showConfirmDialog(null, "Confirma atualização?");
+        if (opcao == JOptionPane.YES_OPTION) {
+            try {
+                int id = Integer.parseInt(idCursoTextField.getText());
+                String nome = nomeCursoTextField.getText();
+                String tipo = tipoCursoTextField.getText();
+                Curso curso = new Curso(id, nome, tipo);
+                CursoDAO cd = new CursoDAO ();
+                cd.atualizarCurso(curso);
+                JOptionPane.showMessageDialog(null, "Curso atualizado!");
+                buscarCursos();
+                idCursoTextField.setText("");
+                nomeCursoTextField.setText("");
+                tipoCursoTextField.setText("");
+            }
+            catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Problemas Técnicos..");
+                e.printStackTrace();
+            }
+        }
+    }//GEN-LAST:event_atualizarCursoButtonActionPerformed
 
     /**
      * @param args the command line arguments
