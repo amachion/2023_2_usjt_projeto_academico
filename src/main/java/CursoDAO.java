@@ -50,4 +50,18 @@ public class CursoDAO {
             ps.execute();
         }
     }
+    public void removerCurso (Curso curso) throws Exception {
+        String sql = "DELETE FROM tb_curso WHERE id = ?";
+        try (Connection conn = ConexaoBD.obtemConexao();
+             PreparedStatement ps = conn.prepareStatement(sql);) {
+            ps.setInt(1, curso.getId());
+            ps.execute();
+        }
+    }
 }
+
+
+
+
+
+
